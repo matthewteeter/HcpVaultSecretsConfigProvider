@@ -1,0 +1,19 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+POST https://auth.hashicorp.com/oauth/token
+Content-Type: application/json
+
+{
+         "audience": "https://api.hashicorp.cloud",
+         "grant_type": "client_credentials",
+         "client_id": "aoeueou",
+         "client_secret": "aoeueaoueoauaeoueoauaoueaoueoaueoauaou"
+}
+###Hcp Vault Secrets Params
+@org=your-org-id
+@project=your-project-id
+@app_name=YourApp
+
+# Get ALL secrets for an app
+GET https://api.cloud.hashicorp.com/secrets/2023-06-13/organizations/{{org}}/projects/{{project}}/apps/{{app_name}}/open
+Authorization: Bearer some_long_token_you_got_from_token_endpoint
