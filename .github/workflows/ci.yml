@@ -13,7 +13,7 @@ jobs:
 
     env:
       BUILD_CONFIG: 'Release'
-      SOLUTION: 'HcpVaultSecretsConfigProvider.sln'
+      SOLUTION: 'HcpVaultSecretsConfigProviderSln.sln'
 
     runs-on: ubuntu-latest
 
