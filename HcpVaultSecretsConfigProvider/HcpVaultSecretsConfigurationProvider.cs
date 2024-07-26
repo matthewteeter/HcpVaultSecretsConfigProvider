@@ -84,12 +84,12 @@ namespace HcpVaultSecretsConfigProvider
                 string org = GetFromConfig("HcpVaultSecrets:OrgId");
                 string project = GetFromConfig("HcpVaultSecrets:ProjectId");
                 string app = GetFromConfig("HcpVaultSecrets:AppName");
-                _logger.LogDebug($"Found org {org}, proj {project}, app {app}");
+                _logger.LogDebug($"Found org {org}, project {project}, app {app}");
                 //get all secrets for this app and overlay onto existing config if keys match
                 var secretsMap = await GetSecrets(org, project, app, parsed.access_token!);
                 foreach (KeyValuePair<string, string> kv in secretsMap)
                 {
-                    Set(kv.Key, kv.Value);//TODO: will this break if a key doesn't exist?
+                    Set(kv.Key.Replace("__", ":"), kv.Value);
                 }
             }
             catch(Exception e)
